@@ -1,0 +1,23 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+}
+
+.file{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border: solid rgb(12, 12, 12);
+    margin: 5px;
+}
+
+.submitBtn{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+}
+
+
