@@ -1,14 +1,14 @@
 let XLSX = require('xlsx');
+const path = require("path");
 
-const overwriting = (files) => {
-    const {zamler, chernivci, kharkiv, promUa} = files;
+const overwriting = (files, res) => {
+    const {stockFiles, promUa} = files;
     let promUaWb = XLSX.read(promUa.data);
     
-    const stockFiles = [zamler.data, chernivci.data, kharkiv.data];
     const stocktaking = {}; 
 
     for( let file of stockFiles ){
-        let fileWb = XLSX.read(file);
+        let fileWb = XLSX.read(file.data);
         let fileRaw = fileWb.Sheets[fileWb.SheetNames[0]];
         let fileSheetJs = XLSX.utils.sheet_to_json(fileRaw);
         
@@ -48,6 +48,10 @@ const overwriting = (files) => {
     XLSX.utils.book_append_sheet(PromResltWorkbook, promUaRawOne, "Export Products Sheet");// добавляем лист "Export Products Sheet" с данными "promUaRawOne"
     XLSX.utils.book_append_sheet(PromResltWorkbook, promUaRawTwo, "Export Groups Sheet");// добавляем лист "Export Groups Sheet" с данными "promUaRawTwo"
     XLSX.writeFile(PromResltWorkbook, "resalt.xlsx");
+    res.download(path.join(__dirname + '../../../resalt.xlsx'));
+
+    //XLSX.writeFileAsync('resalt.xlsx', PromResltWorkbook, (Buffer) => res.download(Buffer))
+
 }
 
 module.exports = overwriting;
