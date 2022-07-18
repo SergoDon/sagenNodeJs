@@ -7,25 +7,19 @@
 
 <body>
     <div class="conteiner">
-        <form class="form" action="/app/load_files" method="POST" enctype="multipart/form-data">
+        <form class="form" id="upload" action="/app/load_files" method="POST" enctype="multipart/form-data">
             <div class="file">
-                Замлер: <input type="file" name="zamler" required />
+                Файлы складов: <input type="file" name="stockFiles" required multiple />
             </div>
 
             <div class="file">
-                Чернівці: <input type="file" name="chernivci" />
+                Файл Prom UA: <input type="file" name="promUa" />
             </div>
 
-            <div class="file">
-                Харків: <input type="file" name="kharkiv" />
-            </div>
-
-            <div class="file">
-                Пром Юа: <input type="file" name="promUa" />
-            </div>
-            <input class="submitBtn" type="submit">
+            <input form="upload" class="submitBtn" type="submit">
         </form>
     </div>
+
 </body>
 
 </html>
