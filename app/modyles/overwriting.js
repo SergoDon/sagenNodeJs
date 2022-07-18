@@ -48,8 +48,9 @@ const overwriting = (files, res) => {
     XLSX.utils.book_append_sheet(PromResltWorkbook, promUaRawOne, "Export Products Sheet");// добавляем лист "Export Products Sheet" с данными "promUaRawOne"
     XLSX.utils.book_append_sheet(PromResltWorkbook, promUaRawTwo, "Export Groups Sheet");// добавляем лист "Export Groups Sheet" с данными "promUaRawTwo"
     XLSX.writeFile(PromResltWorkbook, "resalt.xlsx");
-    res.download(path.join(__dirname + '../../../resalt.xlsx'));
-
+    //var fileContents = Buffer.from(PromResltWorkbook, "base64");
+    res.status(200).download(path.join(__dirname + '../../../resalt.xlsx'));
+    //console.log(fileContents);
     //XLSX.writeFileAsync('resalt.xlsx', PromResltWorkbook, (Buffer) => res.download(Buffer))
 
 }
