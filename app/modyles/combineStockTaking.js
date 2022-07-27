@@ -12,4 +12,5 @@ const combineStockTaking = (stock, stocktaking) => {
         stocktaking.hasOwnProperty(article) ? stocktaking[article] += count : stocktaking[article] = count;
     }
 }
+
 module.exports = combineStockTaking;
