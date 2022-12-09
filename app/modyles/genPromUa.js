@@ -15,6 +15,7 @@ const genPromUa = (promUa, stocktaking, res) => {
             for( let j = 0; j < storArr.length; j++){
                 if(promUaRawOne[`A${i}`].v === storArr[j][0]){
                     promUaRawOne[`Q${i}`] = { t: 'n', v: storArr[j][1], w: storArr[j][1] };
+                    promUaRawOne[`Q${i}`].v = Math.floor(promUaRawOne[`Q${i}`].v);
                     promUaRawOne[`P${i}`].v = "+";
                 }  
             } 
